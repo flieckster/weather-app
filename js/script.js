@@ -2,13 +2,26 @@ $(document).ready(function () {
 
   // <!-- 0e3a06de362672136f4d5f71a9cc90db api key BrianFlieckWeatherKe -->
   let DateTime = luxon.DateTime;
-  //  let hour = DateTime.local().hour;
   let localDatetime = DateTime.local().toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
-  //hide button for now, fix later
-  // previousCity.style.display = "none";
 
 
+  var citiesArray = JSON.parse(localStorage.getItem("cities")) || [];
  
+
+
+  for (var i = 0; i < citiesArray.length; i++){
+    var searchedbutton = $("<button>");
+    searchedbutton.addClass("btn btn-light");
+    searchedbutton.text(citiesArray[i])
+    $("#previouscity").append(searchedbutton);
+  };
+
+  $(document).on("click", ".searchHistoryButton", function(event) {
+    event.preventDefault();
+    checkCurrentCity($(this).text());
+})
+
+
 
 $("#submit-btn").on("click", function () {
 
@@ -16,23 +29,10 @@ $("#submit-btn").on("click", function () {
  var icon = "http://openweathermap.org/img/wn/";
  const apiKey = "0e3a06de362672136f4d5f71a9cc90db";
 
- var citiesArray = JSON.parse(localStorage.getItem("cities")) || [];
+
  citiesArray.push(searchTerm);
  localStorage.setItem("cities", JSON.stringify(citiesArray));
 
-
-//  for (var i = 0; i < citiesArray.length; i++) {
-//    var previousSearchButtons = $("<button>");
-//    previousSearchButtons.addClass("btn btn-secondary my-2 searchHistoryButton");
-//    previousSearchButtons.text(citiesArray[i]); 
-//    $("#previousCity").append(previousSearchButtons);
-//    // previousCity.style.display = "block";
-//  }
-//         checkCurrentCity(searchTerm);
-//         var previousSearchButtons = $("<button>");
-//         previousSearchButtons.addClass("btn btn-secondary my-2 searchHistoryButton");
-//         previousSearchButtons.text(searchTerm);
-//         $("#previousCity").append(previousSearchButtons);
 
 
 fetch("http://api.openweathermap.org/data/2.5/weather?q="+searchTerm+"&units=imperial&appid=0e3a06de362672136f4d5f71a9cc90db")
