@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
 
 <head>
@@ -11,33 +7,52 @@
   <title>Open Weather App</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <nav class="navbar">
-    <span class="navbar-brand mx-auto">Open Weather</span>
-  </nav>
-  <div class="container-fluid">
+  <div class="container">
+    <nav class="navbar">
+      <span class="navbar-brand">Open Weather</span>
+    </nav>
     <div class="row">
-      <div class="col-md-4 py-4">
-        <form action="">
-          <fieldset>
-          </fieldset>
+      <div class="col-12">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="text" placeholder="please enter a city name.." id="search-bar">
+          <button class="btn my-2 my-sm-0 btn-dark" type="button" id="submit-btn">Search</button>
+          <div class="col-auto" id="previouscity"></div>
+
         </form>
       </div>
-      <div class="col-md-9 py-4">
-        <div class="jumbotron">
-templ, hum, wind speed, uvindex
-        </div>
-      </div>
-    </div>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./js/script.js"></script>
+    </div>
+    <div class="row">
+      <div class="col-6 align-items-center" id="todayForecast">
+        <div class="col" id="name"></div>
+        <div class="col" id="date"></div>
+        <div class="col" id="temp"></div>
+        <div class="col" id="desc"></div>
+        <div class="col" id="icon"></div>
+        <div class="col" id="windspeed"></div>
+        <div class="col" id="uv"></div>
+        <div class="col" id="latlon"></div>
+        <div class="col" id="fiveDayRow"></div>
+   
+      </div>
+
+
+ 
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

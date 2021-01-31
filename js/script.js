@@ -40,9 +40,9 @@ fetch("http://api.openweathermap.org/data/2.5/weather?q="+searchTerm+"&units=imp
 .then(Response => Response.json())
 .then(data => {
  var nameValue = data['name'];
- console.log(nameValue);
+ console.log(data);
  var tempvalue = data['main']['temp'];
- console.log(tempvalue);
+//  console.log(tempvalue);
  var descValue = data['weather'][0]['description'];
  var iconValue = icon+data['weather'][0]['icon']+".png";
  var windspeed = data['main']['feels_like'];
@@ -56,10 +56,6 @@ $("#desc").html("Weather Condition: "+ descValue);
 $("#icon").html("<img src=" + iconValue+ ">");
 $("#windspeed").html("Feels Like: " + windspeed + " &#8457");
 $("#latlon").html("Latitue: "+latitude + " Longitute: "+longitude);
-$("#previousCity").html(localStorage.getItem("cities"));
-// var uv = "http://api.openweathermap.org/data/2.5/uvi?lat="+latitude+"&lon="+longitude+"&appid="+apiKey;
-
-
 fetch("http://api.openweathermap.org/data/2.5/uvi?lat="+latitude+"&lon="+longitude+"&appid="+apiKey)
 .then(Response => Response.json())
 .then(data => {
@@ -77,8 +73,39 @@ fetch("http://api.openweathermap.org/data/2.5/uvi?lat="+latitude+"&lon="+longitu
   $("#uv").addClass("uvRed");
  };
 
-//  $("#fiveday").empty();
+ $("#fiveDayRow").empty();
 
+ function nextFiveDays(dailyData) {
+
+ 
+
+
+  console.log(dailyData);
+
+
+  let html = " ";
+
+
+  dailyData.forEach((fiveDay, i) => {
+
+      if (i > 4) return;
+
+      html += `<div class="col-m-2">
+  <div class="card border-light mb-3" style="max-width: 20rem;">
+      <div class="card-header">Date:‏‏‎ ‎‏‏‎ ‎${moment().add(i + 1, "days").format('l')} </div>
+      <div class="card-body">
+      <img src="https://openweathermap.org/img/wn/${fiveDay.weather[0].icon}@2x.png" >
+          <p class="card-text">Temp:‏‏‎ ‎‏‏‎ ‎${fiveDay.temp.day}‎‏‏‎ ‎°F</p>
+          <p class="card-text">Humidity:‏‏‎ ‎‏‏‎ ‎${fiveDay.humidity}‎‏‏‎ ‎%</p>
+      </div>
+  </div>
+</div>`
+
+  });
+
+  $("#fiveDayRow").append(html);
+}
+nextFiveDays();
 
 //  .catch(err => alert("wrong city name"));
 });
@@ -86,4 +113,6 @@ fetch("http://api.openweathermap.org/data/2.5/uvi?lat="+latitude+"&lon="+longitu
 
 
 });
+
+
 });
