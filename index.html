@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body id="background">
   <div class="container">
     <nav class="navbar">
       <span class="navbar-brand">Open Weather</span>
@@ -29,7 +29,7 @@
 
     </div>
     <div class="row">
-      <div class="col-6 align-items-center" id="todayForecast">
+      <div class="col-7 align-items-center" id="todayForecast">
         <div class="col" id="name"></div>
         <div class="col" id="date"></div>
         <div class="col" id="temp"></div>
@@ -38,13 +38,16 @@
         <div class="col" id="windspeed"></div>
         <div class="col" id="uv"></div>
         <div class="col" id="latlon"></div>
-        <div class="col" id="fiveDayRow"></div>
-   
+
       </div>
-
-
- 
-
+    </div>
+    <div class="row">
+      <div id="day1"></div>
+      <div id="day2"></div>
+      <div id="day3"></div>
+      <div id="day4"></div>
+      <div id="day5"></div>
+    </div>
   </div>
   </div>
   </div>
@@ -52,7 +55,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
-  <script src="./js/script.js"></script>
+  <script src="./js/another.js"></script>
 </body>
 
 </html>

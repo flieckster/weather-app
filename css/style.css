@@ -3,13 +3,23 @@
 height: 50px;
 
 }
+.card{
+  opacity: .7;
+  padding: 2px;
+  margin: 2px;
+}
 
+.btn{
+  opacity: .7;
+  
+}
 
 .navbar-brand{
   font-size: xx-large;
   font-weight: bold;
   font-size: xx-large;
-  color: white;
+  color: rgb(128, 128, 128);
+  -webkit-text-stroke: .5px rgb(252, 252, 252);
   
 }
 #todayForecast{
@@ -33,6 +43,21 @@ height: 50px;
 body{
   background-color: rgb(185, 185, 185);
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.backroundAM{
+  background: lightblue url("https://images.unsplash.com/photo-1514241516423-6c0a5e031aa2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80") no-repeat fixed center;
+}
+.backgroundMid{
+  background: lightblue url("https://images.unsplash.com/photo-1508550536558-5e8d33eb9a82?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80") no-repeat fixed center;
+}
+.backgroundAfternoon{
+  background: lightblue url("https://images.unsplash.com/photo-1553011234-96ec81abde91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80") no-repeat fixed center;
+  
+}
+.backgroundNight{
+  background: lightblue url("https://images.unsplash.com/photo-1436891620584-47fd0e565afb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80") no-repeat fixed center;
+  
 }
 
 /* UV class colors */

@@ -3,7 +3,6 @@ $(document).ready(function () {
   // <!-- 0e3a06de362672136f4d5f71a9cc90db api key BrianFlieckWeatherKe -->
   let DateTime = luxon.DateTime;
   let localDatetime = DateTime.local().toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
-  let localDateOnly = DateTime.local().toLocaleString(DateTime.DATE_SHORT);
 
 
   var citiesArray = JSON.parse(localStorage.getItem("cities")) || [];
@@ -17,7 +16,7 @@ $(document).ready(function () {
     $("#previouscity").append(searchedbutton);
   };
 
-  $(document).on("click", ".searchedbutton", function(event) {
+  $(document).on("click", ".searchHistoryButton", function(event) {
     event.preventDefault();
     checkCurrentCity($(this).text());
 })
@@ -71,48 +70,14 @@ fetch("http://api.openweathermap.org/data/2.5/uvi?lat="+latitude+"&lon="+longitu
  };
 
 
- fiveDay(data);
 
- function fiveDay () {
-
-  $("#fiveDayRow").empty();
-  let html = " ";
-  data.forEach((fiveDay, i) => {
-
-    if (i > 4) return;
-
-
-    html += `<div class="col-m-2">
-<div class="card border-light mb-3" style="max-width: 20rem;">
-    <div class="card-header">Date:‏‏‎ ‎‏‏‎ ‎${localDateOnly} </div>
-    <div class="card-body">
-    <img src="https://openweathermap.org/img/wn/${fiveDay.weather[0].icon}@2x.png" >
-        <p class="card-text">Temp:‏‏‎ ‎‏‏‎ ‎${fiveDay.tempvalue}‎‏‏‎ ‎°F</p>
-        <p class="card-text">Humidity:‏‏‎ ‎‏‏‎ ‎${fiveDay.humidity}‎‏‏‎ ‎%</p>
-    </div>
-</div>
-</div>`
-
-});
-
-
-$("#fiveDayRow").append(html);
-
-
-}
-
-
-
-});
-
- })
 
 //  .catch(err => alert("wrong city name"));
 });
 })
 
 
+});
 
 
-
-;
+});
