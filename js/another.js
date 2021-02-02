@@ -144,7 +144,7 @@ $(document).ready(function () {
                 var cardbody1 = $('<p>');
                 cardbody1.text("Temp: " + day1temp +" °F");
                 var cardbody2 = $('<p>');
-                cardbody2.text("Feels Like: " + day1feelslike );
+                cardbody2.text("Feels Like: " + day1feelslike +" °F");
 
                 cardBody.append(cardtitle);
                 cardBody.append(cardbody1);
