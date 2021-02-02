@@ -9,9 +9,9 @@ $(document).ready(function () {
   console.log(timeofday);
   var citiesArray = JSON.parse(localStorage.getItem("cities")) || [];
   const apiKey = "0e3a06de362672136f4d5f71a9cc90db";
-  var icon = "http://openweathermap.org/img/wn/";
+  var icon = "https://openweathermap.org/img/wn/";
 
-  const url = "http://api.openweathermap.org/data/2.5/weather?q=";
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=";
   const forecast = "https://api.openweathermap.org/data/2.5/onecall?lat=";
   const forecastlon = "&lon=";
   const url2 = "&units=imperial&appid=0e3a06de362672136f4d5f71a9cc90db";
@@ -88,7 +88,7 @@ $(document).ready(function () {
         $("#icon").html("<img src=" + iconValue + ">");
         $("#windspeed").html("Feels Like: " + windspeed + " &#8457");
         $("#latlon").html("Latitue: " + latitude + " Longitute: " + longitude);
-        fetch("http://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey)
+        fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey)
           .then(Response => Response.json())
           .then(data => {
             var uvValue = data['value'];
@@ -119,7 +119,7 @@ $(document).ready(function () {
                 var day1feelslike = day.feels_like.day;
                 var day1desc = day.weather[0].main;
                 var futureday = DateTime.local().plus({ days: i+1}).toLocaleString();
-                var day1icon = 'http://openweathermap.org/img/wn/' + day.weather[0].icon + '@2x.png';
+                var day1icon = 'https://openweathermap.org/img/wn/' + day.weather[0].icon + '@2x.png';
 
                 $("[id^='day']").addClass('card bg-light mb-3 border');
                 $("#day1").html("<h5>" + futureday + "</h5>" + "<br>");
