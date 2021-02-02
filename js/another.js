@@ -24,7 +24,7 @@ if (timeofday <= "11:00 AM"){
   $("#background").addClass("backroundAM");
 }else if (timeofday >= "12:00 PM"){
   $("#background").addClass("backgroundMid");
-}else if(timeofday >=  "12:00 PM" && timeofday <= "4:00PM"){
+}else if(timeofday >=  "12:00 PM" && timeofday <= "4:00 PM"){
   $("#background").addClass("backgroundAfternoon");
 }else{
   $("#background").addClass("backgroundNight");
